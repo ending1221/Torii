@@ -1,0 +1,362 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP|Sawarabi+Mincho&display=swap')
+
+$red: #E31C21
+$redDark: #B31B1A
+$toriiBlack: #342925
+$sea: #396FB2
+$white_cloud: #f2f9fe
+$mountain: #5B9450
+
+$blueLight: #6fc5ff
+$blueLight2: #57A1D5
+$blueDark: #0058ff
+
+$background: #2C2F36
+
+$seaGradient: linear-gradient(180deg, $blueLight, $blueDark)
+$seaGradient2: linear-gradient(180deg, $blueLight2, $blueDark)
+$sceneGradient: linear-gradient(#1D2B49,#1A45A0,#91cdff,#fff)
+
+*,*:before,*:after
+  font-family: 'Sawarabi Mincho'
+  position: relative
+  // border: solid 1px
+
+=size($w,$h:$w,$b:0)
+  width: $w
+  height: $h
+  border-radius: $b
+  
+=flex($j:center,$a:center)
+  display: flex
+  justify-content: $j
+  align-items: $a
+
+=poa($l:initial,$t:initial)
+  position: absolute
+  left: $l
+  top: $t
+  
+=fake($fw,$fh,$fb:0,$fr:0)
+  +size($fw,$fh,$fb)
+  content: ""
+  display: block
+  transform: skew($fr)
+  
+=toprotate($translateX,$skew:0,$deg:0)
+  transform: translateX($translateX) skew($skew) rotate($deg)
+html,body
+  +size(100%)
+  padding: 0
+  margin: 0
+  +flex
+  background-color: $background
+  
+.title
+  color: white
+  font-size: 70px
+  +poa(50%,50%)
+  z-index: 3
+  transform: translateX(-50%)
+  text-shadow: 0px 0px 20px rgba(black,0.7)
+  font-weight: 500
+  text-align: center
+  hr
+    margin: 
+      top: -10px
+      bottom: 8px
+    +size(13%,2px)
+    margin-right: auto
+    margin-left: auto
+    border: none
+    background-color: rgba($red,1) 
+  
+  .titletext
+    margin: 0
+    padding: 0
+    font-size: 12px
+    font-weight: 100
+    letter-spacing: 1px
+
+
+
+  
+.card
+  +size(500px,500px,50%)
+  overflow: hidden
+  background: $sceneGradient
+  background-size: 100% 200%
+  box-shadow: 0px 0px 20px rgba(black,0.5)
+  cursor: pointer
+  
+.sea
+  +size(100%,45%)
+  +poa(0px,310px)
+  background: $seaGradient2
+.torii, .torii_2
+  +poa(50%,28%)
+  transform: translateX(-50%)
+.torii_2
+  transform: translateX(-50%) scaleY(-1) translateY(-464px)
+  opacity: 0.2
+  
+  
+.top
+  +size(250px,12px)
+  background-color: $red
+.topbox
+  +size(250px,12px)
+  background-color: $toriiBlack
+  &:before
+    +fake(60%,12px)
+    +poa(55%,0px)
+    +toprotate(-100%,50deg,2deg)
+    background-color: $toriiBlack
+  &:after
+    +fake(60%,12px)
+    +poa(105%,0px)
+    +toprotate(-100%,-50deg,-2deg)
+    background-color: $toriiBlack
+.mid
+  +size(240px,12px)
+  +poa(50%,55px)
+  transform: translateX(-50%)
+  background-color: $red
+  
+=midbox($x:0,$skew:15deg,$rotate:10deg)
+  +size(15px,8px)
+  transform: translateX($x) skew($skew) rotate($rotate) 
+  +poa(13px,-7px)
+  background-color: $red
+  
+.midbox
+  +midbox
+.midbox2
+  +midbox(166px)
+.midbox3
+  +midbox(30px,-15deg,-10deg)
+.midbox4
+  +midbox(195px,-15deg,-10deg)
+    
+    
+=block($x,$y)
+  +size(20px,200px)
+  +poa($x,$y)
+  background-color: $red
+  box-shadow: 0px 5px 20px rgba(black,0.3),inset -3px 0px 0px $redDark
+  &:before
+    +fake(150%,10px)
+    +poa(-6px,-10px)
+    background-color: $red
+    box-shadow: 0px 0px 20px rgba(black,0.3)
+  &:after
+    +fake(140%,30px,0px 0px 3px 3px)
+    +poa(-5px,180px)
+    background-color: $red
+    box-shadow: 0px 5px 5px rgba(black,0.3)
+  
+[class^="block"]
+  +block(32px,34px)
+  
+.block2
+  left: initial
+  right: 32px
+  box-shadow: 0px 5px 20px rgba(black,0.3),inset 3px 0px 0px $redDark
+.box
+  +size(25px,40px)
+  +poa(50%,20px)
+  transform: translateX(-50%)
+  background-color: $toriiBlack
+  box-shadow: 0px 5px 20px rgba(black,0.3)
+  &:before
+    +fake(55%,65%)
+    +poa(50%,5px)
+    transform: translateX(-50%)
+    border: solid 2px rgba(white,0.7)
+  
+=bottompillar($x:10px,$y:125px,$scale:1)
+  +size(20px,110px)
+  +poa($x,$y)
+  background-color: $red
+  box-shadow: 0px 5px 20px rgba(black,0.3),inset -5px 0px 0px $redDark
+  transform: scale($scale)
+  &:before
+    +fake(150%,10px)
+    +poa(-6px,-10px)
+    background-color: $toriiBlack
+    box-shadow: 0px 0px 20px rgba(black,0.3),inset -5px 0px 0px (black,0.8)
+  &:after
+    +fake(140%,30px,0px 0px 3px 3px)
+    +poa(-5px,110px)
+    background-color: $red
+    box-shadow: 0px 5px 5px rgba(black,0.3),inset -5px 0px 0px $redDark
+  
+=pillarshadow($color)
+  box-shadow: 0px 5px 20px rgba(black,0.3),inset 5px 0px 0px $color
+  
+.bottompillar
+  +bottompillar
+.bottompillar2
+  +bottompillar(220px,125px)
+  +pillarshadow($redDark)
+  &:before
+    +pillarshadow((black,0.8))
+  &:after
+    +pillarshadow($redDark)
+.bottompillar3
+  +bottompillar(50px,115px,0.7)
+.bottompillar4
+  +bottompillar(180px,115px,0.7)
+  +pillarshadow($redDark)
+  &:before
+    +pillarshadow((black,0.8))
+  &:after
+    +pillarshadow($redDark)
+ 
+=ypillar
+  .front
+    +size(10px,15px)
+    +poa(5px,130px)
+    background-color: $red
+    &:before
+      +fake(7px,15px)
+      +poa(10px,0px)
+      background-color: $redDark
+  .mid
+    +size(15px,14px)
+    +poa(35px,129px)
+    background-color: $redDark
+  .out
+    +size(10px,13px)
+    +poa(50px,128px)
+    background-color: $redDark
+  
+.ypillar
+  +ypillar
+.ypillar2
+  +ypillar
+  transform: scaleX(-1)
+.ypillar3
+  +ypillar
+  transform: translateY(35px)
+  .mid 
+    top: 128px
+  .out
+    top: 125px
+.ypillar4
+  +ypillar
+  transform: scaleX(-1) translateY(35px)
+  .mid 
+    top: 128px
+  .out
+    top: 125px
+  
+.allstars
+  +size(100%)
+  +poa(0,0)
+
+@keyframes star
+  0%, 100%
+    opacity: 0
+  70%
+    opacity: 1
+  0%
+    transform: translate(100px,0px)
+  100%
+    transform: translate(0px,200px)
+  
+[class^="star"]
+  +size(3px,3px,50%)
+  background-color: #fff
+  animation: star 2s infinite
+  
+@for $i from 1 through 30
+  .star#{$i}
+    $x: random(100)*1%
+    $y: random(85)*-1%+50%
+    +poa($x,$y)
+    animation-delay: $i*-0.1s
+  
+.moon, .sun
+  +size(50px,50px,50%)
+  +poa(300px,70px)
+  
+.moon
+  background-color: rgba(#fff,0.8)
+  box-shadow: 0px 0px 20px rgba(#fff,0.7)
+.sun
+  background-color: #ffdd38
+  box-shadow: 0px 0px 20px rgba(#ffdd38,0.7)
+  top: 400px
+  opacity: 0
+  
+=mountain($x:-30px,$y:270px,$scale:1,$filter:100%)
+  +size(200px,180px,30px)
+  background-color: $mountain
+  transform: skew(10deg) rotate(45deg) scale($scale)
+  filter: brightness($filter)
+  +poa($x,$y)
+  
+.mountain
+  +mountain
+.mountain2
+  +mountain(140px,270px,1.5,80%)
+.mountain3  
+  +mountain(260px,270px,0.9,70%)
+.mountain4
+  +mountain(480px,270px,1.2,90%)
+.mountains
+  opacity: 0.7
+  
+=cloud($px,$py)
+  +size(100px,36px,20px)
+  +poa($px,$py)
+  opacity: 0
+  animation: cloud 3s infinite 
+  background-color: $white_cloud
+  &::before, &::after
+    +fake(50px,50px,100%)
+    +poa(10px,-20px)
+    background-color: $white_cloud
+  &::after
+    +poa(35px,-32px)
+
+@keyframes cloud
+  0%
+    transform: translateY(0px) translateX(0px) scale(0.7)
+  50%
+    transform: translateY(3px) scale(0.7) 
+  100% 
+    transform: translateY(0px) scale(0.7)
+  
+.cloud
+  +cloud(240px,100px)
+.cloud2
+  +cloud(280px,120px)
+  animation-delay: -0.5s
+  
+.card, .moon, .sun, .allstars, .sea, .torli, .cloud, .cloud2, .mountains
+  transition: 2s
+  
+input:checked+.card
+  background-position: 0 100%
+  
+  .sea
+    background: $seaGradient
+  .moon
+    top: -100px
+    opacity: 0
+  .sun
+    top: 70px
+    opacity: 1
+  .allstars
+    opacity: 0
+  .torli
+    filter: brightness(105%)
+  .cloud, .cloud2
+    opacity: 1
+  .mountains
+    opacity: 1
+    
+input
+  display: none
