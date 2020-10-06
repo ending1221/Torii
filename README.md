@@ -1,6 +1,7 @@
 # Torii
 
 HTML / SASS
+利用 input 特性，製作點擊轉場動畫。
 
 ## DEMO
 
