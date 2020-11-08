@@ -1,4 +1,4 @@
-const $outer = document.querySelector('.outer');
+const $outer = document.querySelector('.card');
 const bodyWidth = document.body.clientWidth;
 let scale = 1;
 
