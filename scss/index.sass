@@ -17,6 +17,10 @@ $seaGradient: linear-gradient(180deg, $blueLight, $blueDark)
 $seaGradient2: linear-gradient(180deg, $blueLight2, $blueDark)
 $sceneGradient: linear-gradient(#1D2B49,#1A45A0,#91cdff,#fff)
 
+=mobile
+  @media(max-width: 768px)
+      @content
+
 *,*:before,*:after
   font-family: 'Sawarabi Mincho'
   position: relative
@@ -51,6 +55,11 @@ html,body
   margin: 0
   +flex
   background-color: $background
+
+.outer
+  @include mobile
+    transform: scale(0.7)
+  
   
 .title
   color: white
